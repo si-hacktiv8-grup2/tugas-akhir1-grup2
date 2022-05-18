@@ -31,13 +31,18 @@
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h1 class="display-5 mb-3">Contact Us</h1>
                 <p>
+<<<<<<< HEAD
                 For more information, Contact Us
+=======
+                    Untuk informasi lebih lanjut, Hubungi Kami
+>>>>>>> ebf3df19749f68e9b57feb622a2196a932f61554
                 </p>
             </div>
             <div class="row g-5 justify-content-center">
                 <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-primary text-white d-flex flex-column justify-content-center h-100 p-5">
                         <h5 class="text-white">Call Us</h5>
+<<<<<<< HEAD
                         <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>(021) 6347 7839</p>
                         <h5 class="text-white">Email Us</h5>
                         <p class="mb-5"><i class="fa fa-envelope me-3"></i>chill.tour@gmail.com</p>
@@ -46,6 +51,16 @@
                             Jl. Sudirman No.33
                             Padang Timur,
                             Padang, 15443
+=======
+                        <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>(021) 8067 5787</p>
+                        <h5 class="text-white">Email Us</h5>
+                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>halo@hacktiv8.ac.id</p>
+                        <h5 class="text-white">Office Address</h5>
+                        <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>
+                            Jl. Sultan Iskandar Muda No.7
+                            Kebayoran Lama
+                            Jakarta Selatan, 12240
+>>>>>>> ebf3df19749f68e9b57feb622a2196a932f61554
                         </p>
                     </div>
                 </div>
