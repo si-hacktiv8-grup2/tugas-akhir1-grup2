@@ -126,7 +126,7 @@
 <body>
   <div class="container">
     <div class="app">
-      <h1>TO DO LIST</h1>
+      <a href="index.php"><h1>TO DO LIST</h1></a>
       <form>
         <input type="text" placeholder="Tambahkan Task Baru">
         <button type="submit">&plus;</button>
