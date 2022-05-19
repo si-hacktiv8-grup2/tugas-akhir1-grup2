@@ -18,7 +18,7 @@
       flex-direction: column;
       align-items: center;
       padding-top: 50px;
-      background-color: #e1e3ea;
+      background-color: #262e4c;
       height: 100vh;
       font-family: sans-serif;
     }
@@ -34,12 +34,12 @@
     }
 
     .app h1 {
-      color: white;
+      color: black;
       font-size: 40px;
       padding: 10px 0;
       text-align: center;
       border-radius: .5rem .5rem 0 0;
-      background-color: #de3f53;
+      background-color: #fff;
       font-family: "Rajdhani", sans-serif;
     }
 
@@ -61,7 +61,7 @@
     .app form button {
       border: none;
       color: white;
-      background-color: #1dd2af;
+      background-color: red;
       font-size: 25px;
       font-weight: 600;
       height: 42px;
@@ -128,7 +128,7 @@
     <div class="app">
       <h1>TO DO LIST</h1>
       <form>
-        <input type="text" placeholder="Add new task...">
+        <input type="text" placeholder="Tambahkan Task Baru">
         <button type="submit">&plus;</button>
       </form>
       <ul></ul>
@@ -138,21 +138,21 @@
     // ketika load halaman, meload semua task localstorage
     window.onload = loadTasks;
 
-    // On form submit add task
+    // di form menambahkan task baru
     document.querySelector("form").addEventListener("submit", e => {
       e.preventDefault();
       addTask();
     });
 
     function loadTasks() {
-      // check if localStorage has any tasks
-      // if not then return
+      // cek jika ada task di localstorage
+      // jika tidak ada return null
       if (localStorage.getItem("tasks") == null) return;
 
-      // Get the tasks from localStorage and convert it to an array
+      // Jika ada task di ubah menjadi array
       let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
 
-      // Loop through the tasks and add them to the list
+      // Menampilkan seluruh task yang ada di localstorage dan yang baru di tambahkan
       tasks.forEach(task => {
         const list = document.querySelector("ul");
         const li = document.createElement("li");
@@ -163,33 +163,35 @@
       });
     }
 
+    //FUnction menambahkan task baru
     function addTask() {
       const task = document.querySelector("form input");
       const list = document.querySelector("ul");
-      // return if task is empty
+      // kondisi jika submit form yang kosong
       if (task.value === "") {
-        alert("Please add some task!");
+        alert("Tambahkan Data, Form tidak boleh kosong!");
         return false;
       }
-      // check is task already exist
+      // Jika ada task baru yang sama dengan yang tersimpan di localstorage
       if (document.querySelector(`input[value="${task.value}"]`)) {
-        alert("Task already exist!");
+        alert("Task sudah ada!");
         return false;
       }
 
-      // add task to local storage
+      // Menambahkan task yang di input ke localstorage
       localStorage.setItem("tasks", JSON.stringify([...JSON.parse(localStorage.getItem("tasks") || "[]"), { task: task.value, completed: false }]));
 
-      // create list item, add innerHTML and append to ul
+      // Membuat list item baru di bawah ul dengan menambahkan element li 
       const li = document.createElement("li");
       li.innerHTML = `<input type="checkbox" onclick="taskComplete(this)" class="check">
       <input type="text" value="${task.value}" class="task" onfocus="getCurrentTask(this)" onblur="editTask(this)">
       <i class="fa fa-trash" onclick="removeTask(this)"></i>`;
       list.insertBefore(li, list.children[0]);
-      // clear input
+      // MEmbersihkan form inputan
       task.value = "";
     }
 
+    //Function ketika task sudah selesai dikerjakan / dicentang
     function taskComplete(event) {
       let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
       tasks.forEach(task => {
@@ -201,11 +203,12 @@
       event.nextElementSibling.classList.toggle("completed");
     }
 
+    //FUnction untuk menghapus task
     function removeTask(event) {
       let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
       tasks.forEach(task => {
         if (task.task === event.parentNode.children[1].value) {
-          // delete task
+          // menghapus task task
           tasks.splice(tasks.indexOf(task), 1);
         }
       });
@@ -213,27 +216,27 @@
       event.parentElement.remove();
     }
 
-    // store current task to track changes
+    // simpan task saat ini untuk melacak perubahan
     var currentTask = null;
 
-    // get current task
+    // menambahkan task sekarang
     function getCurrentTask(event) {
       currentTask = event.value;
     }
 
-    // edit the task and update local storage
+    // edit task dan update local storage
     function editTask(event) {
       let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-      // check if task is empty
+      // check jika task kosong
       if (event.value === "") {
-        alert("Task is empty!");
+        alert("Tidak ada task!");
         event.value = currentTask;
         return;
       }
-      // task already exist
+      // jika mengedit task yang sudah ada di localstorage
       tasks.forEach(task => {
         if (task.task === event.value) {
-          alert("Task already exist!");
+          alert("Task sudah ada, Edit task yang lain!");
           event.value = currentTask;
           return;
         }
