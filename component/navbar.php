@@ -70,7 +70,37 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <table class="table table-striped">
+            <h4>Paket Tour</h4>
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Keterangan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Explore BAngkok</td>
+                    <td>11 Mei - 15 Mei</td>
+                    <td>Impact Arena, Muang Thong</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Explore Macau</td>
+                    <td>02 Juni - 05 Juni</td>
+                    <td>Cotai Arena, The Venetion</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Explore Java</td>
+                    <td>01 Juli - 10 Juli</td>
+                    <td>Bandung, Dieng, Jogja</td>
+                </tr>
+            </tbody>
+        </table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Subscribe</button>
